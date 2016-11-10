@@ -6,7 +6,7 @@
 /*   By: tberthie <tberthie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 19:18:15 by tberthie          #+#    #+#             */
-/*   Updated: 2016/11/09 15:29:00 by tberthie         ###   ########.fr       */
+/*   Updated: 2016/11/10 12:21:45 by tberthie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,7 @@ int			ft_get_shape(char *str)
 
 	while (*str == '.' || *str == '\n')
 		str++;
-	if ((shape = (ft_is_o(str))))
-		return (shape);
-	if ((shape = (ft_is_i(str))))
-		return (shape);
-	if ((shape = (ft_is_l(str))))
-		return (shape);
-	if ((shape = (ft_is_j(str))))
-		return (shape);
-	if ((shape = (ft_is_t(str))))
-		return (shape);
-	if ((shape = (ft_is_s(str))))
-		return (shape);
-	if ((shape = (ft_is_z(str))))
+	if ((shape = (ft_is_love(str))))
 		return (shape);
 	return (0);
 }
