@@ -6,13 +6,13 @@
 /*   By: tberthie <tberthie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 19:18:15 by tberthie          #+#    #+#             */
-/*   Updated: 2016/11/10 12:21:45 by tberthie         ###   ########.fr       */
+/*   Updated: 2016/11/15 19:05:49 by tberthie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "link.h"
 
-int			ft_get_shape(char *str)
+int		ft_get_shape(char *str)
 {
 	int		shape;
 
@@ -83,6 +83,7 @@ int		ft_get_block(char *str, t_list *list, int id)
 	if (count != 4 || !ft_add_block(str, list, id))
 		return (0);
 	list->count = id + 1;
+	list->square = 235;
 	return (1);
 }
 
@@ -99,7 +100,6 @@ void	ft_parse(int fd)
 		ft_putstr("error\n");
 		return ;
 	}
-	list->blocs = NULL;
 	while ((rd = read(fd, buff, 21)) >= 20)
 	{
 		if (!ft_get_block(buff, list, id++) ||
@@ -113,7 +113,6 @@ void	ft_parse(int fd)
 			ft_solve(list);
 			return ;
 		}
-		buff[20] = '\0';
 	}
 	ft_putstr("error\n");
 }
