@@ -1,8 +1,10 @@
 SRCS = main.c \
-	   display.c \
 	   parse.c \
 	   solve.c \
 	   shapes.c \
+	   remove.c \
+	   print.c \
+	   utl.c
 
 OBJS = $(addprefix objs/,$(SRCS:.c=.o))
 NAME = fillit

@@ -6,7 +6,7 @@
 /*   By: tberthie <tberthie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 19:18:15 by tberthie          #+#    #+#             */
-/*   Updated: 2016/11/15 19:05:49 by tberthie         ###   ########.fr       */
+/*   Updated: 2016/11/15 19:12:09 by tberthie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ int		ft_lst_add(t_list *list, t_bloc *bloc, int id)
 	sub[id] = bloc;
 	while (id--)
 		sub[id] = list->blocs[id];
-	if (list->blocs)
-		free(list->blocs);
 	list->blocs = sub;
 	return (1);
 }
@@ -68,15 +66,15 @@ int		ft_get_block(char *str, t_list *list, int id)
 	i = 0;
 	while (line < 4)
 	{
-		pos = 5 * line;
+		pos = line * 5;
 		i = 0;
 		while (i < 4)
 		{
-			if (str[pos + i] != '.' && str[pos + i] != '#')
+			if (str[i + pos] != '.' && str[i + pos] != '#')
 				return (0);
-			count = (str[pos + i++] == '#' ? count + 1 : count);
+			count = (str[i++ + pos] == '#' ? count + 1 : count);
 		}
-		if (str[pos + 4] != '\n')
+		if (str[4 + pos] != '\n')
 			return (0);
 		line++;
 	}
