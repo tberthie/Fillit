@@ -6,16 +6,16 @@
 /*   By: tberthie <tberthie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/08 13:10:34 by tberthie          #+#    #+#             */
-/*   Updated: 2016/11/15 19:51:40 by tberthie         ###   ########.fr       */
+/*   Updated: 2016/11/15 20:01:46 by tberthie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "link.h"
 
-static int		ft_shift(int shift, char *map)
+static int		ft_shift(int shift, t_list *list, int pos)
 {
-	while (map[shift] && !(ft_print()))
-		ft_remove(shift++);
+	while (map[shift] && !(ft_check()))
+		shift++;
 	return (map[shift] && ft_print() ? shift : 0);
 }
 
