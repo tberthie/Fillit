@@ -6,11 +6,11 @@
 /*   By: tberthie <tberthie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 17:26:14 by tberthie          #+#    #+#             */
-/*   Updated: 2016/11/15 18:55:43 by tberthie         ###   ########.fr       */
+/*   Updated: 2016/11/15 19:31:49 by tberthie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int			ft_print(char *map, int shift, int shape, int id, int square)
+int			ft_print()
 {
 	if (shape == 1 && shift < square && shift / 16 < square &&
 	map[shift + 1] == '.')

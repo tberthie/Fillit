@@ -6,7 +6,7 @@
 /*   By: tberthie <tberthie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 19:18:15 by tberthie          #+#    #+#             */
-/*   Updated: 2016/11/15 19:12:09 by tberthie         ###   ########.fr       */
+/*   Updated: 2016/11/15 19:28:48 by tberthie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,32 +56,28 @@ int		ft_add_block(char *str, t_list *list, int id)
 int		ft_get_block(char *str, t_list *list, int id)
 {
 	int		count;
-	int		pos;
 	int		line;
 	int		i;
 
-	pos = 0;
 	line = 0;
 	count = 0;
 	i = 0;
 	while (line < 4)
 	{
-		pos = line * 5;
 		i = 0;
 		while (i < 4)
 		{
-			if (str[i + pos] != '.' && str[i + pos] != '#')
+			if (str[i + line * 5] != '.' && str[i + line * 5] != '#')
 				return (0);
-			count = (str[i++ + pos] == '#' ? count + 1 : count);
+			count = (str[i++ + line * 5] == '#' ? count + 1 : count);
 		}
-		if (str[4 + pos] != '\n')
+		if (str[4 + line * 5] != '\n')
 			return (0);
 		line++;
 	}
 	if (count != 4 || !ft_add_block(str, list, id))
 		return (0);
 	list->count = id + 1;
-	list->square = 235;
 	return (1);
 }
 
@@ -98,17 +94,17 @@ void	ft_parse(int fd)
 		ft_putstr("error\n");
 		return ;
 	}
+	ft_setup(list->map);
+	list->square = 235;
 	while ((rd = read(fd, buff, 21)) >= 20)
 	{
 		if (!ft_get_block(buff, list, id++) ||
 			(rd == 21 && buff[20] != '\n'))
-		{
-			ft_putstr("error\n");
-			return ;
-		}
+			break ;
 		else if (rd == 20)
 		{
-			ft_solve(list);
+			ft_solve(list, 0);
+			ft_putstr(list->small);
 			return ;
 		}
 	}

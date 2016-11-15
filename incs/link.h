@@ -6,7 +6,7 @@
 /*   By: tberthie <tberthie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 18:21:51 by tberthie          #+#    #+#             */
-/*   Updated: 2016/11/10 12:20:17 by tberthie         ###   ########.fr       */
+/*   Updated: 2016/11/15 19:29:23 by tberthie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,16 @@ typedef struct	s_list
 	int			count;
 	int			square;
 	t_bloc		**blocs;
+	char		map[240];
+	char		small[240];
 }				t_list;
 
 void			ft_parse(int fd);
 void			ft_error(void);
 void			ft_putstr(char *str);
-void			ft_solve(t_list *list);
+void			ft_solve(t_list *list, int pos);
 int				ft_is_love(char *str);
+void			ft_setup(char *map);
+void			ft_remove(char *map, int shape, int shift, int id);
 
 #endif
