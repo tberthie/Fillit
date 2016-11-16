@@ -7,7 +7,7 @@ SRCS = main.c \
 	   check.c \
 	   utl.c
 
-OBJS = $(SRCS:.c=.o)
+OBJS = $(addprefix objs/,$(SRCS:.c=.o))
 NAME = fillit
 
 all: $(NAME)

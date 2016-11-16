@@ -6,7 +6,7 @@
 /*   By: tberthie <tberthie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/08 13:10:34 by tberthie          #+#    #+#             */
-/*   Updated: 2016/11/16 13:55:45 by tberthie         ###   ########.fr       */
+/*   Updated: 2016/11/16 14:13:54 by tberthie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 
 static int		ft_shift(int shift, t_list *list, int pos)
 {
-	while (list->map[shift] && (shift % 16 + 1 > list->square ||
-	shift / 16 + 1 > list->square || !(ft_check(&list->map[shift],
-	list->blocs[pos]->shape))))
+	while (list->map[shift] && !(ft_check(&list->map[shift],
+	list->blocs[pos]->shape, shift, list->square)))
 		shift++;
 	return (list->map[shift] ? shift : -1);
 }
@@ -31,7 +30,7 @@ static int		ft_get_square(char *map)
 	while (map[shift++])
 		if (map[shift - 1] != '.' && map[shift - 1] != '\n')
 		{
-			square = shift % 16 + 1 > square ? shift % 16 + 1 : square;
+			square = shift % 16 + 1 > square ? shift % 16 : square;
 			square = shift / 16 + 1 > square ? shift / 16 + 1 : square;
 		}
 	return (square);

@@ -6,7 +6,7 @@
 /*   By: tberthie <tberthie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 18:21:51 by tberthie          #+#    #+#             */
-/*   Updated: 2016/11/16 13:52:35 by tberthie         ###   ########.fr       */
+/*   Updated: 2016/11/16 14:09:24 by tberthie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void			ft_solve(t_list *list, int pos);
 int				ft_is_love(char *str, int ls, char c);
 void			ft_setup(char *map);
 void			ft_remove(char *map, int shape, int shift, int id);
-int				ft_check(char *map, int shape);
+int				ft_check(char *map, int shape, int shift, int square);
 void			ft_print(char *map, int shape, int id);
 void			ft_result(t_list *list);
 void			ft_putchar(char c);
