@@ -6,7 +6,7 @@
 /*   By: tberthie <tberthie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 19:18:15 by tberthie          #+#    #+#             */
-/*   Updated: 2016/11/16 14:26:20 by tberthie         ###   ########.fr       */
+/*   Updated: 2016/11/16 21:06:19 by tberthie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ int		ft_add_block(char *str, t_list *list, int id)
 	if (!(shape = ft_get_shape(str)))
 		return (0);
 	new->shape = shape;
-	new->pos = 0;
 	new->id = id;
 	if (!ft_lst_add(list, new, id))
 		return (0);

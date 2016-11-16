@@ -6,7 +6,7 @@
 /*   By: tberthie <tberthie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 18:21:51 by tberthie          #+#    #+#             */
-/*   Updated: 2016/11/16 14:09:24 by tberthie         ###   ########.fr       */
+/*   Updated: 2016/11/16 21:02:34 by tberthie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 typedef struct	s_bloc
 {
 	int			shape;
-	int			pos;
 	int			id;
 }				t_bloc;
 
