@@ -6,7 +6,7 @@
 /*   By: tberthie <tberthie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 12:36:58 by tberthie          #+#    #+#             */
-/*   Updated: 2016/11/16 12:49:01 by tberthie         ###   ########.fr       */
+/*   Updated: 2016/11/16 13:12:59 by tberthie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ static int	ft_check_2(char *map, int shape)
 
 int			ft_check(char *map, int shape)
 {
+	if (*map != '.')
+		return (0);
 	if (shape == 1 && map[1] == '.' && map[16] == '.' && map[17] == '.')
 		return (1);
 	if (shape == 2 && map[16] == '.' && map[32] == '.' && map[48] == '.')
@@ -55,5 +57,5 @@ int			ft_check(char *map, int shape)
 		return (1);
 	if (shape == 10 && map[1] == '.' && map[17] == '.' && map[33] == '.')
 		return (1);
-	return (ft_check_2(map, shift, square, shape));
+	return (ft_check_2(map, shape));
 }

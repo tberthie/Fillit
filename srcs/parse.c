@@ -6,7 +6,7 @@
 /*   By: tberthie <tberthie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 19:18:15 by tberthie          #+#    #+#             */
-/*   Updated: 2016/11/16 12:16:14 by tberthie         ###   ########.fr       */
+/*   Updated: 2016/11/16 13:48:31 by tberthie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ void	ft_parse(int fd)
 		else if (rd == 20)
 		{
 			ft_solve(list, 0);
-			ft_putstr(list->small);
+			ft_result(list);
 			return ;
 		}
 	}

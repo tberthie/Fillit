@@ -6,7 +6,7 @@
 /*   By: tberthie <tberthie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/08 13:10:34 by tberthie          #+#    #+#             */
-/*   Updated: 2016/11/16 12:47:06 by tberthie         ###   ########.fr       */
+/*   Updated: 2016/11/16 13:55:45 by tberthie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 static int		ft_shift(int shift, t_list *list, int pos)
 {
-	while (list->map[shift] && !(ft_check(&list->map[shift], shift,
-	list->square, list->blocs[pos]->shape)) && shift % 16 > list->square &&
-	shift / 16 > list->square)
+	while (list->map[shift] && (shift % 16 + 1 > list->square ||
+	shift / 16 + 1 > list->square || !(ft_check(&list->map[shift],
+	list->blocs[pos]->shape))))
 		shift++;
 	return (list->map[shift] ? shift : -1);
 }
@@ -55,10 +55,11 @@ void			ft_solve(t_list *list, int pos)
 	shift = 0;
 	while ((shift = ft_shift(shift, list, pos)) != -1)
 	{
-		ft_print();
+		ft_print(&list->map[shift], list->blocs[pos]->shape,
+		list->blocs[pos]->id);
 		if (pos + 1 != list->count)
-			ft_solve(list, pos++);
-		else
+			ft_solve(list, pos + 1);
+		else if (ft_get_square(list->map) < list->square)
 			ft_save(list);
 		ft_remove(list->map, list->blocs[pos]->shape, shift,
 		list->blocs[pos]->id);

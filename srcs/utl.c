@@ -6,7 +6,7 @@
 /*   By: tberthie <tberthie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 18:57:56 by tberthie          #+#    #+#             */
-/*   Updated: 2016/11/15 19:34:25 by tberthie         ###   ########.fr       */
+/*   Updated: 2016/11/16 13:54:18 by tberthie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,22 @@ void		ft_setup(char *map)
 		line++;
 	}
 	map[240] = '\0';
+}
+
+void		ft_result(t_list *list)
+{
+	int i;
+	int j;
+
+	i = 0;
+	while (i < list->square)
+	{
+		j = 0;
+		while (j < list->square)
+			ft_putchar(list->small[16 * i + j++]);
+		ft_putchar('\n');
+		i++;
+	}
 }
 
 void		ft_putchar(char c)
