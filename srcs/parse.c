@@ -6,7 +6,7 @@
 /*   By: tberthie <tberthie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 19:18:15 by tberthie          #+#    #+#             */
-/*   Updated: 2016/11/15 20:04:19 by tberthie         ###   ########.fr       */
+/*   Updated: 2016/11/16 12:16:14 by tberthie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ int		ft_get_block(char *str, t_list *list, int id)
 	if (count != 4 || !ft_add_block(str, list, id))
 		return (0);
 	list->count = id + 1;
+	list->square = 235;
 	return (1);
 }
 
@@ -95,7 +96,6 @@ void	ft_parse(int fd)
 		return ;
 	}
 	ft_setup(list->map);
-	list->square = 235;
 	while ((rd = read(fd, buff, 21)) >= 20)
 	{
 		if (!ft_get_block(buff, list, id++) ||
