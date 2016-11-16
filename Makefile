@@ -4,6 +4,7 @@ SRCS = main.c \
 	   shapes.c \
 	   remove.c \
 	   print.c \
+	   check.c \
 	   utl.c
 
 OBJS = $(SRCS:.c=.o)
