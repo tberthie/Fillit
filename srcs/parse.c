@@ -6,7 +6,7 @@
 /*   By: tberthie <tberthie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 19:18:15 by tberthie          #+#    #+#             */
-/*   Updated: 2016/11/16 13:48:31 by tberthie         ###   ########.fr       */
+/*   Updated: 2016/11/16 14:26:20 by tberthie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int		ft_get_block(char *str, t_list *list, int id)
 			return (0);
 		line++;
 	}
-	if (count != 4 || !ft_add_block(str, list, id))
+	if (count != 4 || !ft_add_block(str, list, id) || list->count == 26)
 		return (0);
 	list->count = id + 1;
 	list->square = 235;

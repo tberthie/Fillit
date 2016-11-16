@@ -15,7 +15,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	gcc -Wall -Wextra -Werror $^ -o $@
 
-%.o: srcs/%.c
+objs/%.o: srcs/%.c
 	gcc -Wall -Wextra -Werror -Iincs -o $@ -c $<
 
 clean:
