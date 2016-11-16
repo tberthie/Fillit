@@ -7,7 +7,7 @@ SRCS = main.c \
 	   check.c \
 	   utl.c
 
-OBJS = $(addprefix objs/,$(SRCS:.c=.o))
+OBJS = $(SRCS:.c=.o)
 NAME = fillit
 
 all: $(NAME)
@@ -15,7 +15,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	gcc -Wall -Wextra -Werror $^ -o $@
 
-objs/%.o: srcs/%.c
+%.o: srcs/%.c
 	gcc -Wall -Wextra -Werror -Iincs -o $@ -c $<
 
 clean:
