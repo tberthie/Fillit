@@ -6,7 +6,7 @@
 /*   By: tberthie <tberthie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/08 13:10:34 by tberthie          #+#    #+#             */
-/*   Updated: 2016/11/16 21:08:08 by tberthie         ###   ########.fr       */
+/*   Updated: 2017/04/30 16:18:42 by tberthie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,13 @@ static int		ft_shift(int shift, t_list *list, int pos)
 {
 	while (list->map[shift] && !(ft_check(&list->map[shift],
 	list->blocs[pos]->shape, shift, list->square)))
+	{
 		shift++;
+		if (shift % 16 >= list->square)
+			shift = shift / 16 + 1;
+		if (shift / 16 >= list->square)
+			return (-1);
+	}
 	return (list->map[shift] ? shift : -1);
 }
 

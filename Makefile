@@ -13,10 +13,10 @@ NAME = fillit
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	gcc -Wall -Wextra -Werror $^ -o $@
+	gcc -Wall -Wextra -Werror -O3 $^ -o $@
 
 %.o: srcs/%.c
-	gcc -Wall -Wextra -Werror -Iincs -o $@ -c $<
+	gcc -Wall -Wextra -Werror -O3 -Iincs -o $@ -c $<
 
 clean:
 	rm -f $(OBJS)
